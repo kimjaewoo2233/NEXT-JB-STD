@@ -1,23 +1,14 @@
 import Image from "next/image";
 import { TreeItemNode } from "./@types";
 import TreeView from "./components/TreeView";
+import Logo from "./components/Logo";
 
-const treeData: TreeItemNode[] = [
-  {
-    label: '프론트엔드',
-    children: [
-      { label: 'React' },
-      { label: 'Vue' },
-      { label: 'CSS' }
-    ]
-  }
-  // 추가적인 트리 아이템들...
-];
 
-export default function Home() {
+
+export default function Home({searchParams}: { searchParams:any}) {
   return (
-    <div>
-     <TreeView data={treeData} />
-    </div>
+  <div>
+    Hello JOONBEE
+  </div>
   );
 }

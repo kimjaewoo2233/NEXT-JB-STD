@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        custom: '0px 4px 4px rgba(173, 173, 173, 0.25)', // 'custom'은 사용자가 정의한 이름입니다.
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

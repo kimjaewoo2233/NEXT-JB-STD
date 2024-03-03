@@ -1,14 +1,30 @@
-import { TreeViewProps } from "../@types";
+"use client"
+
+import { useState } from "react";
+import { TreeItemNode, TreeViewProps } from "../@types";
 import TreeItem from "./TreeItem";
 
-const TreeView = ({ data }: TreeViewProps) => {
-    return (
-      <div className="bg-gray-100 p-4">
-        {data.map((treeItem) => (
-          <TreeItem {...treeItem} key={treeItem.label} />
-        ))}
-      </div>
-    );
-  };
+const TreeView: React.FC<{ data: TreeItemNode[] }> = ({ data }) => {
+
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  const handleItemClick = (id: string) => {
+    setSelectedId(id);
+  }
+
+  return (
+    <div>
+      {data.map((item) => (
+        <TreeItem 
+          key={item.id} 
+          node={item}
+          isSelected={selectedId === item.id}
+          onItemSelect={handleItemClick}
+          selectedId={selectedId!}  
+        />
+      ))}
+    </div>
+  );
+};
   
   export default TreeView;
